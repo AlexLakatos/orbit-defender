@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "Orbit Defender",
+  "description": "Defend your planet agains alien invaders",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/icon.png"
+  },
+  "developer": {
+    "name": "Green Square",
+    "url": "http://apps.greensqr.com"
+  },
+  "default_locale": "en"
+}
