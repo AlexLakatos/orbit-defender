@@ -56,8 +56,8 @@ function Game(root) {
 
   var speed = 4;
   var acc = 0.00001;
-  var explode = 6;
-  var collide = 6;
+  var explode = 8;
+  var collide = 8;
   var off = 1200;
 
   var ui = {};
@@ -68,11 +68,13 @@ function Game(root) {
 
   var planet = {};
 
-  var ships = [ uiAddShip(new Ship(8, 2, 0)),
-      uiAddShip(new Ship(8, 2, Math.PI / 3 * 2)),
-      uiAddShip(new Ship(8, 2, Math.PI / 3 * 4)) ];
+  var ships = [ uiAddShip(new Ship(11, 2, 0)),
+      uiAddShip(new Ship(11, 2, Math.PI / 6 * 4)),
+      uiAddShip(new Ship(11, 2, Math.PI / 6 * 8)) ];
   var bullets = [];
   var asteroids = [];
+
+  var levelUp = 150;
 
   ui.status = Cut.row().spacing(2).pin({
     offset : 1,
@@ -85,6 +87,15 @@ function Game(root) {
   function start() {
     time = 0;
     life = 16, up = 0, down = 0;
+    next = 0;
+    if (ships.length === 6) {
+      for (var i = 0; i < ships.length; i++) {
+        ships[i].remove();
+      };
+      ships = [ uiAddShip(new Ship(11, 2, 0)),
+      uiAddShip(new Ship(11, 2, Math.PI / 6 * 4)),
+      uiAddShip(new Ship(11, 2, Math.PI / 6 * 8)) ];
+    };
 
     ui.up.setValue(up);
     ui.down.setValue(down);
@@ -159,6 +170,11 @@ function Game(root) {
                 asteroids.splice(j, 1);
                 life = Math.min(16, life + 1);
                 ui.up.setValue("+" + ++up);
+                if (up === levelUp && ships.length === 3) {
+                  ships.push(uiAddShip(new Ship(11, 2, Math.PI / 6 * 2)));
+                  ships.push(uiAddShip(new Ship(11, 2, Math.PI / 6 * 6)));
+                  ships.push(uiAddShip(new Ship(11, 2, Math.PI / 6 * 10)));
+                }
               }
             }
             Cut.image("base:explosion").pin("handle", 0.5).xy(bullet.x,

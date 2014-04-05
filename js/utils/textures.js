@@ -3,13 +3,13 @@ Cut.addTexture({
   factory : function(name) {
     if (name.substring(0, 2) === "d_") {
       var d = name.substr(2, 1);
-      return Cut.Out.drawing("d_" + d, 12, 6, 10, function(ctx, ratio) {
+      return Cut.Out.drawing("d_" + d, 20, 10, 10, function(ctx, ratio) {
         ctx.scale(ratio, ratio);
-        ctx.font = "bold 4px Arial";
-        ctx.fillStyle = "#bbb";
-        ctx.measureText && this.cropX(ctx.measureText(d).width + 0.4);
+        ctx.font = "bold 8px Arial";
+        ctx.fillStyle = "#7DBD00";
+        ctx.measureText && this.cropX(ctx.measureText(d).width + 0.8);
         ctx.textBaseline = "top";
-        ctx.fillText(d, 0.2, 1);
+        ctx.fillText(d, 0.4, 1);
       });
     }
   },
@@ -19,41 +19,41 @@ Cut.addTexture({
     ctx.fillStyle = "#000";
     ctx.fill();
 
-  }), Cut.Out.drawing("planet", 10, 10, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("planet", 15, 15, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(5, 5, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = "#eee";
+    ctx.arc(8, 8, 7, 0, 2 * Math.PI);
+    ctx.fillStyle = "#7DBD00";
     ctx.fill();
 
-  }), Cut.Out.drawing("explosion", 10, 10, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("explosion", 15, 15, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(5, 5, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = "#aaa";
+    ctx.arc(8, 8, 7, 0, 2 * Math.PI);
+    ctx.fillStyle = "#FFAB19";
     ctx.fill();
 
-  }), Cut.Out.drawing("ship", 2, 2, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("ship", 4, 4, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(1, 1, 1, 0, 2 * Math.PI);
-    ctx.fillStyle = "#fff";
+    ctx.arc(2, 2, 2, 0, 2 * Math.PI);
+    ctx.fillStyle = "#DCF600";
     ctx.fill();
 
-  }), Cut.Out.drawing("next", 4, 4, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("next", 8, 8, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(2, 2, 1.6, 0, 2 * Math.PI);
+    ctx.arc(4, 4, 3.2, 0, 2 * Math.PI);
     ctx.lineWidth = 0.3;
     ctx.strokeStyle = "#fff";
     ctx.stroke();
 
-  }), Cut.Out.drawing("asteroid", 2, 2, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("asteroid", 4, 4, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(1, 1, 1, 0, 2 * Math.PI);
-    ctx.fillStyle = "#888";
+    ctx.arc(2, 2, 2, 0, 2 * Math.PI);
+    ctx.fillStyle = "#C11515";
     ctx.fill();
 
-  }), Cut.Out.drawing("bullet", 2, 2, 10, function(ctx, ratio) {
+  }), Cut.Out.drawing("bullet", 4, 4, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(1, 1, 0.6, 0, 2 * Math.PI);
-    ctx.fillStyle = "#fff";
+    ctx.arc(2, 2, 1.2, 0, 2 * Math.PI);
+    ctx.fillStyle = "#DCF600";
     ctx.fill();
 
   }) ]
