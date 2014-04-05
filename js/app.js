@@ -282,3 +282,5 @@ Cut.prototype.y = function(y) {
 };
 
 var M = Cut.Math;
+
+DEBUG = false;
