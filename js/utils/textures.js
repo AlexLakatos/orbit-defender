@@ -33,7 +33,8 @@ Cut.addTexture({
 
   }), Cut.Out.drawing("ship", 4, 4, 10, function(ctx, ratio) {
     ctx.scale(ratio, ratio);
-    ctx.arc(2, 2, 2, 0, 2 * Math.PI);
+    ctx.arc(2, 2, 2, 0, 2 * Math.PI, true);
+    ctx.arc(2, 2, 0.7, 0, 2 * Math.PI, false);
     ctx.fillStyle = "#DCF600";
     ctx.fill();
 
