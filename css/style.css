@@ -13,3 +13,7 @@ body,html {
 body {
 	overflow: hidden;
 }
+
+#images {
+	display: none;
+}

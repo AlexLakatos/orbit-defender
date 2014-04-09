@@ -67,6 +67,7 @@ function Game(root) {
   var life = 0, up = 0, down = 0;
 
   var planet = {};
+  var planetRing = Cut.image("base:ring").pin("handle", 0.5).appendTo(root);
 
   var ships = [ uiAddShip(new Ship(11, 2, 0)),
       uiAddShip(new Ship(11, 2, Math.PI / 6 * 4)),
@@ -224,6 +225,13 @@ function Game(root) {
 
   function uiAddAsteroid(obj) {
     obj.ui = Cut.image("base:asteroid").pin("handle", 0.5).appendTo(root);
+    obj.ui.tween(400000).pin({
+      scaleX : 1,
+      scaleY : 1,
+      skewX : 0,
+      skewY : 0,
+      rotation : 360
+    });
     obj.uiRemove = function() {
       this.ui.remove();
     };
